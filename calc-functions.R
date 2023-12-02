@@ -1,3 +1,5 @@
+library(arrangements)
+
 ### Need to decide if remove plotting functions to a different file
 ### Can happen later.
 
@@ -34,9 +36,6 @@ calc_d <- function(mu1, mu2, nu1, nu2) {
 ## If the number is larger than `maxn`, it returns `maxn` random subsets of the possible combinations.
 ## Nodes are in rows, node sets are in columns. 
 chooser <- function(n, N, maxn = 5000) {
-                                        # will need to adjust syntax on cluster, here or somewhere else
-    require(arrangements, lib.loc = "/user/neilmacl/rlocal/") 
-
     census_n <- choose(N, n)
     
     if(census_n < maxn) {

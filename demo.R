@@ -1,8 +1,7 @@
 library(igraph)
-library(arrangements)
 
 source("sim-functions.R")
-source("calc-functions.R")
+source("calc-functions.R") # will call library(arrangements)
 
 set.seed(123)
 

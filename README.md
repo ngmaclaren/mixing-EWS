@@ -98,7 +98,7 @@ system.time(ns_optsize <- optimize_nodeset_size(C1, C2, L, "stochastic")) # abou
 length(ns_optsize$nodeset) # 16
 ```
 
-Until now we have used a stochastic algorithm to select a good node set from among a random sample of node sets. We have also implemented a greedy algorithm. The greedy algorithm starts with $n=1$ and finds the node which maximizes $d$. If $n>1$, for each additional node in the node set, the algorithm finds the node which maximizes $d$ among those not yet selected and adds it to the node set. Results will usually differ from the stochastic algorithm.
+Until now we have used a stochastic algorithm to select a good node set from among randomly sampled node sets. We have also implemented a greedy algorithm. The greedy algorithm starts with $n=1$ and finds the node which maximizes $d$. Denote the current optimized node set by $S$. The greedy algorithm finds the new node $i \notin S$ such that $S \cup \{i \}$ maximizes $d$ among all possible $i \notin S$ and adds $i$ to $S$, and repeat sequentially adding nodes in this manner. Results will usually differ those obtained by the stochastic algorithm.
 
 ```R
 ns_greedy <- optimize_nodeset_greedy(n, C1, C2, L)

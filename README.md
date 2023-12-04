@@ -27,7 +27,7 @@ N <- nrow(A)
 system.time(dl <- simulate_doublewell(A)) # about 60 sec on a 64-bit Intel Core i3-5010U CPU @ 2.10GHz
 
 ```
-The object `dl` is a list of length 2 and includes the samples from $x_i(t)$ ($L = 100$ by default) and the covariance matrices of the $x_i(t)$ at each value of the bifurcation parameter. The function `simulate_doublewell()` simulates the $x_i(t)$ starting from a default state and gradually increasing a bifurcation parameter until at least one node exits its initial basin of attraction. For the double-well dynamics, we use uniform node stress $u$ as the bifurcation parameter. We initially set $u=0$ and $x_i = 1 \forall i$ and increase $u$ by 0.025 in each round of simulations. 
+The object `dl` is a list of length 2 and includes the samples from $x_i(t)$ ($L = 100$ by default) from each $i \in \{1, \ldots, N\}$ and the covariance matrices of the $x_i(t)$, both at each value of the bifurcation parameter. The function `simulate_doublewell()` simulates the $x_i(t)$ by starting from a default state and gradually increasing a bifurcation parameter until at least one node exits its initial basin of attraction. For the double-well dynamics, we use uniform node stress $u$ as the bifurcation parameter. We initially set $u=0$ and $x_i = 1 \forall i$ and increase $u$ by 0.025 in each round of simulations. 
 
 We need to define several parameters in order to find a good node set: the size of the node set (i.e., the number of nodes), the covariance matrices used to compute $d$, and how many samples from $x_i(t)$ were used to compute the covariance matrices. We will use the covariance matrices at the 10th and 90th percentiles of the range of bifurcation parameter values.
 

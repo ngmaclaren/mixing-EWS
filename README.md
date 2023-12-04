@@ -8,12 +8,6 @@ This repository includes algorithms described in "Anticipating regime shifts by 
 
 Functions to compute $d$ and identify node sets from a network are in `calc-functions.R`. Simulation functions are in `sim-functions.R`. A short demonstration of these procedures is in `demo.R`. We have also included the networks used in the manuscript as adjacency matrices (`.tsv` files) and as an R data file (`networks.rda`) in the `/data` subdirectory.
 
-### Definitions
-
-Want to write the various definitions here. So, define $d$, describe the stochastic and greedy algorithms, and describe the stopping criteria algorithm.
-
-### Example
-
 We have included a file `demo.R` to demonstrate these procedures. We will use the same network here which we use for demonstrations in the manuscript. To run `demo.R`, place the files `demo.R`, `sim-functions.R`, and `calc-functions.R` in a working directory; place the `/data` directory in the same working directory. All of these steps can be accomplished by cloning this repository, for example by downloading and extracting the .zip archive (click the "Code" button, then select "Download ZIP"), or from the command line:
 
 ```sh

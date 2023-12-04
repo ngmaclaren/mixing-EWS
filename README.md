@@ -27,7 +27,7 @@ N <- nrow(A)
 system.time(dl <- simulate_doublewell(A)) # about 60 sec on a 64-bit Intel Core i3-5010U CPU @ 2.10GHz
 
 ```
-The object `dl` is a list of length 2 and includes the samples from $x_i(t)$ ($L = 100$ by default) from each $i \in `\{1, \ldots, N\}`$ and the covariance matrices of the $x_i(t)$, both at each value of the bifurcation parameter. The function `simulate_doublewell()` simulates the $x_i(t)$ by starting from a default state and gradually increasing a bifurcation parameter until at least one node exits its initial basin of attraction. For the double-well dynamics, we use uniform node stress $u$ as the bifurcation parameter. We initially set $u=0$ and $x_i = 1 \forall i$ and increase $u$ by 0.025 in each round of simulations. 
+The object `dl` is a list of length 2 and includes the samples from $x_i(t)$ ($L = 100$ by default) from each $`i \in \{1, \ldots, N\}`$ and the covariance matrices of the $x_i(t)$, both at each value of the bifurcation parameter. The function `simulate_doublewell()` simulates the $x_i(t)$ by starting from a default state and gradually increasing a bifurcation parameter until at least one node exits its initial basin of attraction. For the double-well dynamics, we use uniform node stress $u$ as the bifurcation parameter. We initially set $u=0$ and $x_i = 1 \forall i$ and increase $u$ by 0.025 in each round of simulations. 
 
 We need to define several parameters in order to find a good node set: the size of the node set (i.e., the number of nodes), the covariance matrices used to compute $d$, and how many samples from $x_i(t)$ were used to compute the covariance matrices. We will use the covariance matrices at the 10th and 90th percentiles of the range of bifurcation parameter values.
 
@@ -98,7 +98,7 @@ system.time(ns_optsize <- optimize_nodeset_size(C1, C2, L, "stochastic")) # abou
 length(ns_optsize$nodeset) # 16
 ```
 
-Until now we have used a stochastic algorithm to select a good node set from among randomly sampled node sets. We have also implemented a greedy algorithm. The greedy algorithm starts with $n=1$ and finds the node which maximizes $d$. Denote the current optimized node set by $S$. The greedy algorithm finds the new node $i \notin S$ such that $S \cup `\{i \}`$ maximizes $d$ among all possible $i \notin S$ and adds $i$ to $S$, and repeat sequentially adding nodes in this manner. Results will usually differ those obtained by the stochastic algorithm.
+Until now we have used a stochastic algorithm to select a good node set from among randomly sampled node sets. We have also implemented a greedy algorithm. The greedy algorithm starts with $n=1$ and finds the node which maximizes $d$. Denote the current optimized node set by $S$. The greedy algorithm finds the new node $i \notin S$ such that $`S \cup \{i \}`$ maximizes $d$ among all possible $i \notin S$ and adds $i$ to $S$, and repeat sequentially adding nodes in this manner. Results will usually differ those obtained by the stochastic algorithm.
 
 ```R
 ns_greedy <- optimize_nodeset_greedy(n, C1, C2, L)

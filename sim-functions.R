@@ -48,7 +48,7 @@ determine_samples <- function(nsamples, spacing, ntimesteps, DeltaT) {
 doublewell <- function(x.init, A, r, D, u, s, ntimesteps, DeltaT) {
     N <- length(x.init) #N is available in the top environment, but not necessarily inside the function
     stopifnot(N == ncol(A)) #x.init needs to have the same length (for each node) as A has columns
-    stopifnot(isSymmetric(A)) # This function uses a calculation that requires a symmetric matrix
+    stopifnot(isSymmetric(unname(A))) # This function uses a calculation that requires a symmetric matrix
 
     W <- preallocate_noise(s, N, ntimesteps) # generate the Gaussian noise
 
@@ -197,7 +197,7 @@ simulate_SIS <- function(A, bparam = "D", N = ncol(A),
 genereg <- function(x.init, A, params, D, u, s, ntimesteps, DeltaT) {
     N <- length(x.init)
     stopifnot(N == ncol(A))
-    stopifnot(isSymmetric(A)) # This function uses a calculation that requires a symmetric matrix
+    stopifnot(isSymmetric(unname(A))) # This function uses a calculation that requires a symmetric matrix
 
     B <- params["B"]
     f <- params["f"]

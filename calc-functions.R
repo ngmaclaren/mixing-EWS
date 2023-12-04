@@ -53,8 +53,8 @@ chooser <- function(n, N, maxn = 5000) {
 optimize_nodeset <- function(n, C1, C2, L, maxn = 5000) {
     stopifnot(nrow(C1) == nrow(C2))
     stopifnot(ncol(C1) == ncol(C2))
-    stopifnot(isSymmetric(C1))
-    stopifnot(isSymmetric(C2))
+    stopifnot(isSymmetric(unname(C1)))
+    stopifnot(isSymmetric(unname(C2)))
     
     N <- nrow(C1)
     nodesets <- chooser(n, N, maxn)
@@ -89,8 +89,8 @@ node_selector <- function(possible, C1, C2, L) {
 optimize_nodeset_greedy <- function(n, C1, C2, L) {
     stopifnot(nrow(C1) == nrow(C2))
     stopifnot(ncol(C1) == ncol(C2))
-    stopifnot(isSymmetric(C1))
-    stopifnot(isSymmetric(C2))
+    stopifnot(isSymmetric(unname(C1)))
+    stopifnot(isSymmetric(unname(C2)))
 
     N <- nrow(C1)
 

@@ -1,15 +1,18 @@
-library(igraph)
+## library(igraph)
 
 source("sim-functions.R")
 source("calc-functions.R") # will call library(arrangements)
 
 set.seed(123)
 
-g <- sample_pa(30, m = 2, directed = FALSE, start.graph = make_full_graph(3))
-A <- as_adj(g, "both", sparse = FALSE)
-N <- vcount(g)
+                                        # to generate a new graph
+## g <- sample_pa(30, m = 2, directed = FALSE, start.graph = make_full_graph(3))
+## A <- as_adj(g, "both", sparse = FALSE)
+                                        # to use the BA network from the manuscript
+A <- as.matrix(read.table("./data/ba.tsv", sep = "\t"))
+N <- nrow(A)
 
-system.time(dl <- simulate_doublewell(A)) # about 40 sec on a 64-bit Intel Core i3-5010U CPU @ 2.10GHz
+system.time(dl <- simulate_doublewell(A)) # about 60 sec on a 64-bit Intel Core i3-5010U CPU @ 2.10GHz
 
 n <- 5
 k1 <- round(.1*length(dl$Cs))
@@ -55,13 +58,13 @@ cor(us, V.hat_ns, method = "kendall")
 cor(us, V.hat_rns, method = "kendall") # τ of random node set is high when bparam is homogeneous u
 
                                         # Optimize node set size
-system.time(ns_optsize <- optimize_nodeset_size(C1, C2, L, "stochastic")) # about 2 sec
-length(ns_optsize$nodeset) # 9
+system.time(ns_optsize <- optimize_nodeset_size(C1, C2, L, "stochastic")) # about 5 sec
+length(ns_optsize$nodeset) # 16
 
                                         # Greedy
 ns_greedy <- optimize_nodeset_greedy(n, C1, C2, L)
-setdiff(ns_greedy$nodeset, ns$nodeset) # greedy ns has these nodes, stochastic ns does not
-setdiff(ns$nodeset, ns_greedy$nodeset) # vice versa
+setdiff(ns_greedy$nodeset, ns$nodeset) # greedy ns has these nodes (1, 15, 38), stochastic ns does not
+setdiff(ns$nodeset, ns_greedy$nodeset) # vice versa (7, 10, 29)
 
-system.time(ns_optsize_greedy <- optimize_nodeset_size(C1, C2, L, "greedy")) # 0.07 sec
-length(ns_optsize_greedy$nodeset) # 13
+system.time(ns_optsize_greedy <- optimize_nodeset_size(C1, C2, L, "greedy")) # 0.377 sec
+length(ns_optsize_greedy$nodeset) # 26

@@ -59,7 +59,7 @@ ns <- optimize_nodeset(n, C1, C2, L)
 ```
 By default, we use a stochastic algorithm: if the number of possible combinations of nodes in the node set is larger than 5000 (which it is in this case), we randomly select 5000 combinations of nodes (uniformly and without replacement). We compute $d$ for each selected node set, and choose the node set which maximizes $d$. The function `optimize_nodeset()` accepts an argument `maxn` that allows a different maximum number of combinations above which sampling occurs. 
 
-We can compare our optimized node set against the node set including all nodes and a random node set using Kendall's τ:
+We can compare our optimized node set against the node set including all nodes and a random node set using Kendall's $\tau$:
 
 ```R
                                         # Find a good node set with n=5

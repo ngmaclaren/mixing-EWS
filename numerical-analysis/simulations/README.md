@@ -1,4 +1,4 @@
-## File flow
+## Code to generate numerical data for the figures
 
 The source files are calc-functions2.R and sim-functions2.R. I would like to change the names of these files to calc-functions.R and sim-functions.R, and write a plot-functions.R file that collects the plotting functions in one place (and takes them out of calc-functions.R). A demonstration of the functions discussed in the paper can be found in mwe.R (at the top level of this repo). 
 

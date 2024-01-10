@@ -4,6 +4,8 @@ Code implementing algorithms in "Anticipating regime shifts by mixing early warn
 
 This repository includes algorithms described in "Anticipating regime shifts by mixing early warning signals from different nodes," by N. Masuda et al. These algorithms calculate the metric $d$, which quantifies the quality of a node set, and to use this metric to identify good node sets. We also include functions for simulating $x_i$ across a range of a bifurcation parameter for the dynamics discussed in the manuscript.
 
+The `./numerical-analysis` subdirectory contains data and code to reproduce the manuscript figures as well as code to conduct the simulations from scratch.
+
 ## Usage
 
 Functions to compute $d$ and identify node sets from a network are in `calc-functions.R`. Simulation functions are in `sim-functions.R`. A short demonstration of these procedures is in `demo.R`. We have also included several example networks as adjacency matrices (`.tsv` files) in the `/data` subdirectory.

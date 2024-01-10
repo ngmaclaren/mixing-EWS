@@ -1,10 +1,8 @@
 # mixing-EWS
 
-Code implementing algorithms in "Anticipating regime shifts by mixing early warning signals from different nodes," by N. Masuda et al. 
+This repository includes algorithms described in "Anticipating regime shifts by mixing early warning signals from different nodes," by Naoki Masuda, Kazuyuki Aihara, and Neil G. MacLaren. These algorithms calculate the metric $d$, which quantifies the quality of a node set, and to use this metric to identify good node sets. We also include functions for simulating $x_i$ across a range of a bifurcation parameter for the dynamics discussed in the manuscript.
 
-This repository includes algorithms described in "Anticipating regime shifts by mixing early warning signals from different nodes," by N. Masuda et al. These algorithms calculate the metric $d$, which quantifies the quality of a node set, and to use this metric to identify good node sets. We also include functions for simulating $x_i$ across a range of a bifurcation parameter for the dynamics discussed in the manuscript.
-
-The `./numerical-analysis` subdirectory contains data and code to reproduce the manuscript figures as well as code to conduct the simulations from scratch.
+The `./manuscript-figures` subdirectory contains data and code to reproduce the manuscript figures as well as code to conduct the simulations from scratch.
 
 ## Usage
 
